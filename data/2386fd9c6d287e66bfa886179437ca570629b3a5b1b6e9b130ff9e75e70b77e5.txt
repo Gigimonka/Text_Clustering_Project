@@ -1,0 +1,3 @@
+Topic: Mozilla backtracks in eBay privacy flap
+
+Text: The Mozilla Foundation has updated the German-language version of Firefox in a bid to defuse a growing controversy over the way its search toolbar handles private customer data.
