@@ -3,8 +3,8 @@ from typing import List
 import pickle
 
 # Загружаем модель из библиотеки sentence-transformers
-# Можно выбрать любую модель, например 'all-MiniLM-L6-v2'
-model = SentenceTransformer('all-MiniLM-L6-v2')
+# Можно выбрать любую модель, например 'all-mpnet-base-v2'
+model = SentenceTransformer('all-mpnet-base-v2')
 
 def generate_embeddings(texts: List[str]) -> List[List[float]]:
     """
