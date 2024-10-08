@@ -73,6 +73,7 @@ def main():
             filenames.append(filename)
 
     # Генерация эмбеддингов для новых текстов
+    print(len(new_texts))
     new_embeddings = generate_embeddings(new_texts)
     
     # Загрузка сохранённой модели KMeans
