@@ -2,7 +2,7 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import List
 
-def classify_new_document(new_embedding: List[float], cluster_embeddings: List[List[float]]) -> int:
+def find_max_similarity(new_embedding: List[float], cluster_embeddings: List[List[float]]) -> int:
     """
     Классифицирует новый документ на основе его эмбеддинга, находя ближайший кластер
     с использованием косинусного расстояния.
@@ -15,7 +15,7 @@ def classify_new_document(new_embedding: List[float], cluster_embeddings: List[L
     closest_cluster = similarities.argmax()
     return closest_cluster
 
-def find_nearest_neighbors(new_embedding: List[float], embeddings: List[List[float]], n_neighbors: int = 1) -> List[int]:
+def find_nearest_neighbors(new_embedding: List[float], embeddings: List[List[float]], n_neighbors: int = 1) -> int:
     """
     Находит ближайшие эмбеддинги (и их кластеры) для нового документа с использованием k-ближайших соседей.
     
@@ -24,6 +24,6 @@ def find_nearest_neighbors(new_embedding: List[float], embeddings: List[List[flo
     :param n_neighbors: Количество соседей, которые необходимо найти
     :return: Список индексов ближайших соседей
     """
-    nbrs = NearestNeighbors(n_neighbors=n_neighbors, metric='cosine').fit(embeddings)
+    nbrs = NearestNeighbors(n_neighbors=n_neighbors, metric="cosine").fit(embeddings)
     distances, indices = nbrs.kneighbors([new_embedding])
-    return indices.flatten()
+    return indices.flatten().tolist()[0]
