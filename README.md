@@ -31,7 +31,7 @@
     - `load_model(filepath)` — Загрузка модели кластеризации.
 
   - `classify.py` — Модуль для классификации новых документов:
-    - `classify_document(new_embedding, cluster_centers)` — Классификация нового документа на основе косинусного расстояния до центров кластеров.
+    - `find_max_similarity(new_embedding, cluster_centers)` — Классификация нового документа на основе косинусного расстояния до центров кластеров.
     - `find_nearest_neighbors(embeddings, n_neighbors)` — Поиск ближайших документов с использованием метода ближайших соседей.
   
   - `visualization.py` — Модуль для визуализации данных:
