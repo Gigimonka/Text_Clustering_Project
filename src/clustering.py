@@ -1,6 +1,5 @@
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
-import matplotlib.pyplot as plt
 from typing import List
 import pickle
 from scipy.spatial.distance import cdist
@@ -22,7 +21,7 @@ def find_optimal_clusters(embeddings: List[List[float]], max_k: int = 10) -> Non
         kmeans = cluster_embeddings(embeddings, n_clusters=k)
 
         # Вычисляем distortion, inertia и силуэтный коэффициент
-        distortions.append(sum(np.min(cdist(embeddings, kmeans.cluster_centers_, 'euclidean'), axis=1)) / len(embeddings))
+        distortions.append(sum(np.min(cdist(embeddings, kmeans.cluster_centers_, 'cosine'), axis=1)) / len(embeddings))
         inertias.append(kmeans.inertia_)
         silhouette_scores.append(silhouette_score(embeddings, kmeans.labels_))
 

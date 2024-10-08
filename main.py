@@ -1,5 +1,5 @@
 import os
-from src.preprocess import process_all_texts
+from src.preprocess import process_all_texts, preprocess_text_spacy
 from src.embeddings import generate_embeddings, save_embeddings, load_embeddings
 from src.clustering import find_optimal_clusters, cluster_embeddings, save_model, load_model
 from src.classify import find_max_similarity, find_nearest_neighbors
@@ -73,7 +73,7 @@ def main():
             filenames.append(filename)
 
     # Генерация эмбеддингов для новых текстов
-    print(len(new_texts))
+    new_texts = [preprocess_text_spacy(text) for text in new_texts]  # Предобработка уже считанных текстов
     new_embeddings = generate_embeddings(new_texts)
     
     # Загрузка сохранённой модели KMeans

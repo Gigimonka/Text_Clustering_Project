@@ -67,7 +67,6 @@ def process_all_texts(directory: str) -> List[str]:
     """
     texts = read_text_files(directory)
     processed_texts = [preprocess_text_spacy(text) for text in texts]
-    print(processed_texts)
     return processed_texts
 
 if __name__ == "__main__":
