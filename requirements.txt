@@ -1,0 +1,7 @@
+matplotlib
+scikit-learn
+spacy
+sentence-transformers
+numpy
+pickle
+scipy
